@@ -1,0 +1,127 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(255, 255, 255);
+    color: rgb(18, 17, 17);
+    overflow-x: hidden;
+    padding: 0 40px;
+}
+
+h1{
+    margin-top: 10%;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 3rem;
+    color: rgb(14, 13, 13);
+}
+
+table{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 1em;
+    font-family: sans-serif;
+    min-width: 100vh;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+table tbody tr{
+    height: 120px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+}
+
+thead td{
+    background-color: rgb(0, 95, 115);
+    color: #ffffff;
+    text-align: left;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+}
+
+table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+img{
+    height: 100px;
+}
+
+.modal {
+    background-color:rgb(202, 103, 2);
+    padding: 10px;
+    position: absolute;
+    top: 0px;
+    left: 150%;
+    height: 80vh;
+    min-width: 300px;
+    text-align: center;
+}
+.modal.open {
+    left: 60%;
+    transition: left .5s;
+}
+.modal h3{
+    color:rgb(255, 248, 249);
+    text-decoration:underline;
+    text-transform: capitalize;
+    font-size: 2rem;
+}
+.modal h4 span{
+    color:rgb(0, 0, 0);
+}
+
+.num{
+    font-size:2rem;
+    font-weight: bolder;
+    margin: 10px;
+}
+.modal h4, .modal h5{
+font-size: 1rem;
+margin: 20px;
+color: #0c0c0c;
+}
+
+.minus, .plus, .num{
+    display: inline-block;
+    color:#383737;
+    font-weight: bolder;
+}
+
+.close{
+    position: absolute;
+    bottom: 200px;
+    right:140px;
+}
+
+button{
+    cursor: pointer;
+}
+
+.new-book:hover,.btn-read:hover, .btn-delete:hover, .btn-update:hover{
+    background-color:  rgb(0, 95, 115);
+    color: #ffffff;
+    transition: 0.4s;
+}
+
+.new-book, .btn-read, .btn-delete, .btn-update{
+    text-align: center;
+    background-color:transparent;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1rem;
+    border-radius: 3px;
+    border: 2px solid rgb(0, 95, 115)
+}
+
+.btn-read, .btn-delete, .btn-update{
+    width: 80px;
+    height: 30px;
+}
+
+.new-book{
+    padding: 8px;
+}

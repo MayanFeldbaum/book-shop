@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Welcome to My Book Shop</title>
+</head>
+
+<body onload="onInit()">
+    <h1>MY BOOKSHOOP</h1>
+
+    <section class="book-filter">
+        min rate:
+        <select class="filter-rate-select" onchange="onSetFilterBy({minRate: this.value})">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <label>
+            max price:
+            <input type="range" min="1" max="100" value="20" class="filter-price-range"
+                onchange="this.title=this.value;onSetFilterBy({maxPrice: this.value})" />
+        </label>
+    </section>
+
+
+    <div class="books-container">
+        <table>
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Img</td>
+                    <td onclick="onSort('name')">Title</td>
+                    <td onclick="onSort('price')">price</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <div class="modal">
+        <h3></h3>
+        <h4>Price: $ <span></span> </h4>
+        <h5>Book Rate:</h5>
+        <h6 class="minus">-</h6>
+        <div class="num"></div>
+        <h6 class="plus">+</h6>
+        <button onclick="onCloseModal()" class="close">Close</button>
+    </div>
+    <button onclick="onAddBook()" class="new-book">Create new book</button>
+    <button onclick="onNextPage()" class="page">>></button>
+
+
+
+    <script src="js/services/storage.service.js"></script>
+    <script src="js/services/book.service.js"></script>
+    <script src="js/controller.js"></script>
+
+</body>
+
+</html>
