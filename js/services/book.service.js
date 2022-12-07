@@ -2,7 +2,6 @@
 
 const STORAGE_KEY = 'booksDB'
 const PAGE_SIZE = 3
-var gId= 100
 var gBooks
 var gFilterBy ={maxPrice:0, minRate:0}
 var gPageIdx = 0
@@ -19,16 +18,18 @@ function getBooks(){
 }
 
 function nextPage() {
+    if (gPageIdx===0) return
+    gPageIdx--
+}
+
+function prevPage() {
+    if ((gPageIdx+1) * PAGE_SIZE >= gBooks.length)return
     gPageIdx++
-    if (gPageIdx * PAGE_SIZE >= gBooks.length) {
-        gPageIdx = 0
-    }
 }
 
 function _createBook(title,price,img='<img src="img/book.jpg"') {
-    gId++
     return {
-        id:`${gId}`,
+        id:''+title+price,
         title,
         price,
         rate:0,
@@ -40,9 +41,9 @@ function _createBooks() {
     var books = loadFromStorage(STORAGE_KEY)
     if (!books || !books.length) {
         books = [
-            _createBook('Here comes the sun',10,'<img src="img/book.jpg"'),
-            _createBook('Little darling',11,'<img src="img/book.jpg"'),
-            _createBook('Its alright',12,'<img src="img/book.jpg"'),
+            _createBook('Dora',89,'<img src="img/book.jpg"'),
+            _createBook('Blippi',75,'<img src="img/book.jpg"'),
+            _createBook('Cocomelon',62,'<img src="img/book.jpg"'),
         ]
     }
     gBooks = books
@@ -74,7 +75,7 @@ function getBookById(bookId) {
 }
 
 function updateBookRate(bookId, num){
-    var book = gBooks.find(book => bookId === +book.id)
+    var book = gBooks.find(book => bookId === book.id)
     book.rate = book.rate+num
     saveToStorage(STORAGE_KEY, gBooks)
 }
@@ -85,3 +86,8 @@ function setBookFilter(filterBy = {}) {
     if (filterBy.minRate !== undefined) gFilterBy.minRate = filterBy.minRate
     return gFilterBy
 }
+
+function getBookFilter(){
+    return gFilterBy
+}
+
